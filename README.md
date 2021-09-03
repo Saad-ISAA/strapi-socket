@@ -15,7 +15,8 @@ const socket = io.connect(API_URL, {
 socket.emit('subscribe', 'mynotifications');
 // socket.emit('subscribe', 'notification');
 
-// <user-id> is the id of the user, the event on the strapi is bind to this id so that only the relevant user receives the notification 
+// <user-id> is the id of the user, the event on the strapi is bind to this id 
+// so that only the relevant user receives the notification 
 socket.on("my_notification_<user-id>", (data) => {
     console.log("RECEIVED NEW NOTIFICATION");
     console.log(data);
