@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notifications",
+  "info": {
+    "name": "Notification"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string"
+    },
+    "sender": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "receiver": {
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "method": "PUT",
+      "path": "/user/like/:id",
+      "handler": "like.update",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
