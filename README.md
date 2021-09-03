@@ -1,6 +1,7 @@
 # Strapi application
 
-A quick description of your strapi application
+This application has a custom controller which adds "likes" to a user profile.
+When a like is received for a profile, the user receives a notification via socket.io
 ```
 const io = require("socket.io-client");
 const API_URL = "http://localhost:1337/";
@@ -12,26 +13,11 @@ const socket = io.connect(API_URL, {
 });
 
 socket.emit('subscribe', 'mynotifications');
-socket.emit('subscribe', 'notification');
+// socket.emit('subscribe', 'notification');
 
-socket.on("create", async (data) => {
-    //do something
-    console.log("CREATE");
-    console.log(data);
-});
-socket.on("update", (data) => {
-    // do something
-    console.log("UPDATE");
-    console.log(data);
-});
-socket.on("delete", (data) => {
-    // do something
-    console.log("DELETE");
-    console.log(data);
-});
-socket.on("got_notification", (data) => {
-    // do something
-    console.log("SAAD");
+// <user-id> is the id of the user, the event on the strapi is bind to this id so that only the relevant user receives the notification 
+socket.on("my_notification_<user-id>", (data) => {
+    console.log("RECEIVED NEW NOTIFICATION");
     console.log(data);
 });
 ```
