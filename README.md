@@ -2,6 +2,13 @@
 
 This application has a custom controller which adds "likes" to a user profile.
 When a like is received for a profile, the user receives a notification via socket.io
+
+socket.io-client is used on the front end application to connect with the socket.io server
+```
+npm i -s socket.io-client
+```
+
+
 ```
 const io = require("socket.io-client");
 const API_URL = "http://localhost:1337/";
@@ -13,7 +20,6 @@ const socket = io.connect(API_URL, {
 });
 
 socket.emit('subscribe', 'mynotifications');
-// socket.emit('subscribe', 'notification');
 
 // <user-id> is the id of the user, the event on the strapi is bind to this id 
 // so that only the relevant user receives the notification 
