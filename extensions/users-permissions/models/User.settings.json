@@ -62,6 +62,15 @@
     "liked_by": {
       "plugin": "users-permissions",
       "collection": "user"
+    },
+    "fullname": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
     }
   }
 }
